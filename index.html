@@ -72,6 +72,63 @@ b {
   font-weight: bold;
   box-shadow: 0 0 8px rgba(255, 193, 7, 0.4);
 }
+  
+        /* Style for the floating button=Emai Us */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f39c12;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000; /* Ensure it floats on top of content */
+        }
+
+        /* Style for the link inside the button */
+        #email-us {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #email-us:hover {
+            text-decoration: underline;
+        }
+
+        /* Dismiss button inside the floating button */
+        #dismiss-btn {
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            background:  #ff6666;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        #dismiss-btn:hover {
+            color: #ff5c5c;
+        }
+
+        /* End of Style for the floating button=Emai Us */
+
+  
+    
     @media (max-width: 768px) {
       .hero h2 {
         font-size: 2rem;
@@ -82,6 +139,15 @@ b {
     }
   </style>
 </head>
+        <!-- Floating Button =Email Us-->
+    <div id="floating-button" class="floating-btn">
+        <a href="mailto:edutech1.insights@gmail.com" id="email-us">
+            <i class="fas fa-envelope"></i> <!-- Font Awesome Icon -->
+            Email Us
+        </a>
+        <span id="dismiss-btn">&times;</span>
+    </div>
+      <!--End of Floating Button=Email Us -->
 <body>
 
   <section class="hero">
