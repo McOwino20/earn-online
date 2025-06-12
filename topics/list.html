@@ -4,6 +4,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Online Income Virtual Session Topics</title>
+
+    <script>
+    // 🚫 General user interaction protections
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+  alert("Right-click has been disabled to protect content 🚫.");
+});
+
+document.addEventListener('selectstart', function (e) {
+  e.preventDefault();
+  console.warn("Text selection is blocked 🚫.");
+});
+
+['copy', 'cut', 'paste'].forEach(evt =>
+  document.addEventListener(evt, function (e) {
+    e.preventDefault();
+    alert(`Action "${evt}" is disabled on this website 🚫.`);
+  })
+);
+
+document.addEventListener('dragstart', function (e) {
+  if (e.target.tagName.toLowerCase() === 'img') {
+    e.preventDefault();
+    alert("Image dragging is disabled 🚫.");
+  }
+});
+/*Disabled 
+document.addEventListener('touchstart', function (e) {
+  const tag = e.target.tagName.toLowerCase();
+  if (['img', 'p', 'div', 'span', 'h1', 'h2', 'h3'].includes(tag)) {
+    e.preventDefault();
+    alert("Touch-hold is disabled to prevent copying.");
+  }
+}, { passive: false });
+*/
+// 🛑 DevTools and shortcut detection
+document.onkeydown = function (e) {
+  const key = e.key.toLowerCase();
+  if (
+    e.key === 'F12' ||
+    (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+    (e.ctrlKey && key === 'u') ||
+    (e.ctrlKey && key === 's') ||  // Prevent Ctrl+S (save)
+    (e.key === 'PrintScreen') ||
+    (e.ctrlKey && key === 'p')     // Prevent print
+  ) {
+    e.preventDefault();
+    alert("Developer tools and key combinations are restricted on this site 🚫.");
+    return false;
+  }
+};
+
+// 👀 Detect DevTools (basic visual resize detection)
+setInterval(() => {
+  if (window.outerHeight - window.innerHeight > 100 || window.outerWidth - window.innerWidth > 100) {
+    console.warn("DevTools activity detected. Content disabled 🚫.");
+    document.body.innerHTML = "<h2 style='color: red; text-align: center; margin-top: 20%;'>Content protected. Developer Tools are not allowed.</h2>";
+  }
+}, 1000);
+
+// 🚫 Prevent PrintScreen key (PrtScn)
+window.addEventListener('keyup', function (e) {
+  if (e.key === 'PrintScreen') {
+    navigator.clipboard.writeText('Content is protected!').then(() => {
+      alert('Screenshots are disabled on this page 🚫.');
+    });
+  }
+});
+    
+</script>
+  
+  
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
